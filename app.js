@@ -3,7 +3,8 @@
 let nombreUsuario = "";
 let listaNombres = [];
 let numumeroDeNombres = 0;
-let nombreSorteadoAnterior = "";
+let nombreActual = "";
+let ultimoNombreSorteado = [];
 
 //console.log(listaNombres);
 
@@ -28,7 +29,13 @@ function sortearAmigo(){
         numumeroDeNombres = listaNombres.length;
         let posicion = Math.floor(Math.random()*numumeroDeNombres);
 
-        elementoHTML.innerHTML = `El amigo secreto sorteado es: ${listaNombres[posicion]} `;   
+        nombreActual = listaNombres[posicion];
+        if(ultimoNombreSorteado.length > 1 && ultimoNombreSorteado[ultimoNombreSorteado.length-1] == nombreActual){
+            sortearAmigo();
+        }
+        ultimoNombreSorteado.push(nombreActual);
+
+        elementoHTML.innerHTML = `El amigo secreto sorteado es: ${nombreActual} `;   
         
         return elementoHTML.innerHTML;
     }   

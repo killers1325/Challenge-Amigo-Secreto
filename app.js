@@ -31,10 +31,10 @@ function sortearAmigo(){
 
         nombreActual = listaNombres[posicion];
         if(ultimoNombreSorteado.length > 1 && ultimoNombreSorteado[ultimoNombreSorteado.length-1] == nombreActual){
-            sortearAmigo();
+            return sortearAmigo();
         }
         ultimoNombreSorteado.push(nombreActual);
-
+        console.log(ultimoNombreSorteado); //Comprobando que no se repita el anterior sorteado
         elementoHTML.innerHTML = `El amigo secreto sorteado es: ${nombreActual} `;   
         
         return elementoHTML.innerHTML;
